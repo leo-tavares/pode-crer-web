@@ -1,8 +1,13 @@
+import ResetCss from "./styles/reset";
+
 const App = () => {
   return (
-    <div>
-      <h1>Pode crer web</h1>
-    </div>
+    <>
+      <ResetCss />
+      <div>
+        <h1>Pode crer web</h1>
+      </div>
+    </>
   );
 };
 
