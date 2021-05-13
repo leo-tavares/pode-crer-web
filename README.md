@@ -9,14 +9,14 @@
 
 # Introdução
 
-
+O ideia é construir uma platafarma para realização de sonhos, as pessas podem criar seus projetos em busca de recursos para alcançar seus desejos. Com o pode-crer-web você vai poder tanto ajudar quanto ser ajudado.
 
 # Como contribuir
 
 - Primeiro faça um clone do projeto
 
 ```bash
-  git clone https://github.com/leo-tavares/calculadora-X.git
+  git clone https://github.com/leo-tavares/pode-crer-web.git
 ```
 
 - Agora crie uma nova branch com o seu nome ou com a feature que você deseja criar/corrigir.
