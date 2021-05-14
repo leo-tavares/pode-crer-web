@@ -1,13 +1,13 @@
-import ResetCss from "./styles/reset";
+import GlobalStyle from "./styles/globalStyle";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
 
 const App = () => {
   return (
-    <>
-      <ResetCss />
-      <div>
-        <h1>Pode crer web</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes />
+    </BrowserRouter>
   );
 };
 
