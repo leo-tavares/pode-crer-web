@@ -1,4 +1,6 @@
 import { createContext, useCallback, useContext, useState } from "react";
+import firebase from "firebase";
+import { clone } from "ramda";
 import api from "../services/api";
 
 const AuthContext = createContext({});
@@ -6,6 +8,7 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const tokenStorageKey = "@podecrer:token";
   const userStorageKey = "@podecrer:user";
+
   const [data, setData] = useState(() => {
     let auxData = {};
     const token = localStorage.getItem(tokenStorageKey);
@@ -17,31 +20,45 @@ export const AuthProvider = ({ children }) => {
         user: JSON.parse(user),
       };
     }
-    console.log(token, user);
     return auxData;
   });
 
   const signIn = useCallback(async ({ email, password }) => {
-    // const response = await api.post("sessions", { email, password });
-    // const { token, user } = response.data;
-    localStorage.setItem(tokenStorageKey, "token");
-    localStorage.setItem(userStorageKey, JSON.stringify({ email }));
-    setData({ token: "token", user: { email } });
+    const { user } = await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password);
+    const clonedUser = clone(user);
+    const token = await user.getIdToken();
+    localStorage.setItem(tokenStorageKey, token);
+    localStorage.setItem(userStorageKey, JSON.stringify(clonedUser));
+    setData({ token, user: clonedUser });
   }, []);
 
-  const signOut = useCallback(() => {
+  const signUp = useCallback(async (email, password) => {
+    const { user } = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password);
+    const token = await user.getIdToken();
+    const clonedUser = clone(user);
+    localStorage.setItem(tokenStorageKey, token);
+    localStorage.setItem(userStorageKey, JSON.stringify(clonedUser));
+    setData({ token, user: clonedUser });
+  }, []);
+
+  const signOut = useCallback(async () => {
+    await firebase.auth().signOut();
     localStorage.removeItem(tokenStorageKey);
-    localStorage.getItem(userStorageKey);
+    localStorage.removeItem(userStorageKey);
     setData({});
   }, []);
 
-  const forgotPassword = useCallback(() => {
-    console.log("recuperando password...");
+  const forgotPassword = useCallback(async (email) => {
+    await firebase.auth().sendPasswordResetEmail(email);
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ user: data.user, signIn, signOut, forgotPassword }}
+      value={{ user: data.user, signIn, signOut, signUp, forgotPassword }}
     >
       {children}
     </AuthContext.Provider>
