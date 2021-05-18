@@ -2,7 +2,7 @@ import React from 'react';
 import Image from '../../images/image.svg'
 import { DreamsCard, DreamsCollected, DreamsContainer, DreamsDescription, DreamsDonations, DreamsH1, DreamsH3, DreamsIcon, DreamsObjective, DreamsProfile, DreamsSpan, DreamsUserImage, DreamsWrapper, DreamUsername } from './style'
 
-const CardDreams = () => {
+const DreamsCards = () => {
     return (
         <>
            <DreamsContainer id="dreams">
@@ -12,9 +12,9 @@ const CardDreams = () => {
                 <DreamsWrapper>
                     <DreamsCard>
                         <DreamsIcon src={Image}/>
-                        <DreamsH3>Titulo do sonho</DreamsH3>
+                        <DreamsH3>Título do sonho</DreamsH3>
                         <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</DreamsDescription>
+                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
                             <DreamUsername>Nome do individuo</DreamUsername>
@@ -26,9 +26,9 @@ const CardDreams = () => {
                     </DreamsCard>
                     <DreamsCard>
                         <DreamsIcon src={Image}/>
-                        <DreamsH3>Titulo do sonho</DreamsH3>
+                        <DreamsH3>Título do sonho</DreamsH3>
                         <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</DreamsDescription>
+                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
                             <DreamUsername>Nome do individuo</DreamUsername>
@@ -40,9 +40,9 @@ const CardDreams = () => {
                     </DreamsCard>
                     <DreamsCard>
                         <DreamsIcon src={Image}/>
-                        <DreamsH3>Titulo do sonho</DreamsH3>
+                        <DreamsH3>Título do sonho</DreamsH3>
                         <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</DreamsDescription>
+                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
                             <DreamUsername>Nome do individuo</DreamUsername>
@@ -54,9 +54,9 @@ const CardDreams = () => {
                     </DreamsCard>
                     <DreamsCard>
                         <DreamsIcon src={Image}/>
-                        <DreamsH3>Titulo do sonho</DreamsH3>
+                        <DreamsH3>Título do sonho</DreamsH3>
                         <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</DreamsDescription>
+                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
                             <DreamUsername>Nome do individuo</DreamUsername>
@@ -72,4 +72,4 @@ const CardDreams = () => {
     )
 }
 
-export default CardDreams;
+export default DreamsCards;

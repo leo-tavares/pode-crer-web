@@ -1,13 +1,5 @@
-import CardDreams from "../../components/cards"
-
-
 const Dashboard = () => {
-  return (
-  <>  
-  <h1>Dashboard</h1>
-  <CardDreams />
-  </>
-  );
+  return <h1>Dashboard</h1>
 };
 
 export default Dashboard;
