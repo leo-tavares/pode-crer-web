@@ -34,16 +34,14 @@ export const AuthProvider = ({ children }) => {
     setData({ token, user: clonedUser });
   }, []);
 
-  const signUp = useCallback(async (email, password) => {
-    const { user } = await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password);
-    const token = await user.getIdToken();
-    const clonedUser = clone(user);
-    localStorage.setItem(tokenStorageKey, token);
-    localStorage.setItem(userStorageKey, JSON.stringify(clonedUser));
-    setData({ token, user: clonedUser });
-  }, []);
+  const signUp = useCallback(
+    async ({ email, password }) => {
+      await api.post("/user", { email, password });
+      await signIn({ email, password });
+      await firebase.auth().currentUser.sendEmailVerification();
+    },
+    [signIn]
+  );
 
   const signOut = useCallback(async () => {
     await firebase.auth().signOut();
