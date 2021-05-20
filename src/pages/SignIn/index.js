@@ -14,7 +14,7 @@ const SignIn = () => {
   const handleSubmit = useCallback(
     async (data) => {
       const schema = yup.object().shape({
-        email: yup.string().email().required("email é obrigatório"),
+        email: yup.string().email("email inválido").required("email é obrigatório"),
         password: yup
           .string()
           .min(6, "A senha deve conter ao menos 6 digitos")

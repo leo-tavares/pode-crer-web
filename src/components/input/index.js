@@ -1,6 +1,8 @@
 import { useField } from "@unform/core";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Container } from "./styles";
+import { FiAlertCircle } from "react-icons/fi";
+import { COLORS } from "../../styles/COLORS";
+import { Container, ErrorTooltip } from "./styles";
 
 const Input = ({ name, icon: Icon, ...otherProps }) => {
   const inputRef = useRef(null);
@@ -25,8 +27,8 @@ const Input = ({ name, icon: Icon, ...otherProps }) => {
   }, []);
 
   return (
-    <Container>
-      {Icon && <Icon size={20}/>}
+    <Container hasError={!!error}>
+      {Icon && <Icon size={20} />}
       <input
         ref={inputRef}
         onFocus={handleInputFocus}
@@ -34,6 +36,11 @@ const Input = ({ name, icon: Icon, ...otherProps }) => {
         defaultValue={defaultValue}
         {...otherProps}
       />
+      {error && (
+        <ErrorTooltip title={error}>
+          <FiAlertCircle color={COLORS.ERROR_DEFAULT} size={20} />
+        </ErrorTooltip>
+      )}
     </Container>
   );
 };
