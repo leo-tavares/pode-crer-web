@@ -1,5 +1,24 @@
+import React, { useState } from 'react'
+import Cards from '../../components/cards'
+import GetStartedSection from '../../components/getStartedSection'
+import Navbar from '../../components/navbar'
+import Sidebar from '../../components/sidebar'
+
 const Dashboard = () => {
-  return <h1>Dashboard</h1>
+  const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
+
+    return (
+        <>
+            <Sidebar isOpen={isOpen} toggle={toggle}/>
+            <Navbar toggle={toggle}/>
+            <GetStartedSection />
+            <Cards />
+        </>
+    )
 };
 
 export default Dashboard;
