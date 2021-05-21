@@ -1,16 +1,20 @@
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import DreamSection from "../pages/Dreams";
+import ForgotPassoword from "../pages/ForgotPassword";
 import SignIn from "../pages/SignIn";
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/">
+        <Dashboard />
+      </Route>
+      <Route path="/login">
         <SignIn />
       </Route>
-      <Route path="/dashboard">
-        <Dashboard/>
+      <Route path="/recuperarAcesso">
+        <ForgotPassoword />
       </Route>
       <Route path="/dreamssection">
         <DreamSection />
