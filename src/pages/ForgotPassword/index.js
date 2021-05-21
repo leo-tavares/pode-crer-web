@@ -6,7 +6,7 @@ import Input from "../../components/input";
 import Button from "../../components/button";
 import getValidationErros from "../../helper/getValidationErros";
 import { useAuth } from "../../hooks/auth";
-import { Container, Link } from "./styles";
+import { Container, Link, NavigatoToHome } from "./styles";
 
 const ForgotPassoword = () => {
   const formRef = useRef(null);
@@ -40,6 +40,7 @@ const ForgotPassoword = () => {
         <Input name="email" icon={FiMail} />
         <Button type={"submit"}> Enviar link de recuparação </Button>
       </Form>
+      <NavigatoToHome to="/"> Voltar para página inicial </NavigatoToHome>
     </Container>
   );
 };
