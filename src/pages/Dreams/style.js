@@ -6,6 +6,7 @@ export const ContainerDreamsPage = styled.div `
     justify-content: center;
     align-items: center;
     background-color: #f1f4f4;
+
 `
 
 export const Section = styled.div `
@@ -13,10 +14,27 @@ export const Section = styled.div `
     flex-direction: row;
     justify-content: center;
     align-itemns: center;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+
+    }
 `
 export const ImageDream = styled.img`
     height: 500px;
-    margin: 0 30px;
+    width: 700px;
+
+    @media screen and (max-width: 768px) {
+        width: 100vh;
+        height: 400px;
+        
+    }
+`
+
+export const DivCarousel = styled.div`
+    width: 700px;
+    height: 500px;
 `
 
 export const Div = styled.div`
@@ -24,6 +42,7 @@ export const Div = styled.div`
     width: 370px;
     background-color: #f8f8ff;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
 
 `
 export const DivDonation = styled.div`
@@ -46,7 +65,7 @@ export const ButtonDonation = styled.button`
 
     &:hover {
         background-color: #fff;
-        border: 1px solid black;
+        border-bottom: 5px solid #01bf71;
         color: #000;
     }
 `
@@ -59,26 +78,27 @@ export const DonationP = styled.p`
     margin: 20px;
 `
 
-export const NavSection = styled.div`
+export const DivSection = styled.div`
     display: flex;
 `
 
-export const Menu = styled.div`
+export const DivDesc = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 20px;
     width: 50%;
 `
 
-export const A = styled.a`
-    text-decoration: none;
+export const DivDescription = styled.div`
+    border-style: none;
+    margin: 10px;
     font-size: 20px;
     font-weight: bold;
     color: #000;
-    padding: 15px;
-    
-    &:hover {
-        border-bottom: 5px solid #01bf71;
-        background-color: #f1f4f4;
-    }
+    padding: 10px 160px;
+    border-bottom: 5px solid #01bf71;
+    background-color: #f1f4f4;
+
 `

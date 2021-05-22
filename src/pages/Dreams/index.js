@@ -1,15 +1,20 @@
 import React from 'react'
-import Image from '../../images/image.svg'
-import { ContainerDreamsPage, DivDonation, ImageDream, Section, Div, ButtonDonation, DonationH1, DonationP, Menu, A, NavSection } from './style'
+import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DonationP, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
+import CarouselDreams from './components/carouselDream'
+import Description from '../../components/description'
 
 const DreamSection = () => {
+
     return (
         <>
         <ContainerDreamsPage>
             <h1>Título do sonho</h1>
             <p>Autor do sonho</p>
         <Section>
-            <ImageDream src={Image}/>
+            <DivCarousel>
+                <CarouselDreams />
+            </DivCarousel>
+            
             <Div>
                 <DivDonation>
                     <DonationH1>R$ 0000,00</DonationH1>
@@ -19,12 +24,12 @@ const DreamSection = () => {
             </Div>
         </ Section>
         </ ContainerDreamsPage>
-            <NavSection>
-            <Menu>
-                <A  href="description">Sobre</A>
-                <A  href="comments" >Comentários</A>
-            </Menu>
-            </NavSection>
+            <DivSection>
+            <DivDesc>
+                <DivDescription >Descrição</DivDescription>
+            <Description />
+            </DivDesc>
+            </DivSection>
         </>
     )
 }
