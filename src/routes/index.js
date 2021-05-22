@@ -3,6 +3,7 @@ import Dashboard from "../pages/Dashboard";
 import DreamSection from "../pages/Dreams";
 import ForgotPassoword from "../pages/ForgotPassword";
 import SignIn from "../pages/SignIn";
+import Error from "../components/errorPage"
 
 const Routes = () => {
   return (
@@ -19,6 +20,7 @@ const Routes = () => {
       <Route path="/dreamssection">
         <DreamSection />
       </Route>
+      <Route path="*" component={Error} />
     </Switch>
   );
 };
