@@ -1,10 +1,14 @@
-import React from 'react'
-import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DonationP, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
+import React, { useMemo, useState } from 'react'
+import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
 import CarouselDreams from './components/carouselDream'
 import Description from '../../components/description'
+import ProgressBar from '../../components/progressBar'
 
 const DreamSection = () => {
-
+    const [goal , setGoal] = useState(0)
+    const [collected, setCollected] = useState(0)
+    
+    const value = useMemo(() => ((goal - collected)/goal) * 100, [goal, collected])
     return (
         <>
         <ContainerDreamsPage>
@@ -18,7 +22,7 @@ const DreamSection = () => {
             <Div>
                 <DivDonation>
                     <DonationH1>R$ 0000,00</DonationH1>
-                    <DonationP>Arrecadado 0000,00</DonationP>
+                    <ProgressBar done={value}/>
                     <ButtonDonation>Apoiar sonho</ ButtonDonation>
                 </DivDonation> 
             </Div>
