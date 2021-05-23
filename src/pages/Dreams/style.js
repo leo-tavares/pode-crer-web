@@ -24,12 +24,6 @@ export const Section = styled.div `
 export const ImageDream = styled.img`
     height: 500px;
     width: 700px;
-
-    @media screen and (max-width: 768px) {
-        width: 100vh;
-        height: 400px;
-        
-    }
 `
 
 export const DivCarousel = styled.div`
