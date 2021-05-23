@@ -6,9 +6,9 @@ import ProgressBar from '../../components/progressBar'
 
 const DreamSection = () => {
     const [goal , setGoal] = useState(0)
-    const [reached, setReached] = useState(0)
-    
-    const value = useMemo(() => ((goal - reached)/goal) * 100, [goal, reached])
+    const [collected, setCollected] = useState(0)
+
+    const value = useMemo(() => ((goal - collected)/goal) * 100, [goal, collected])
     return (
         <>
         <ContainerDreamsPage>
@@ -18,13 +18,13 @@ const DreamSection = () => {
             <DivCarousel>
                 <CarouselDreams />
             </DivCarousel>
-            
+
             <Div>
                 <DivDonation>
                     <DonationH1>R$ 0000,00</DonationH1>
                     <ProgressBar done={value}/>
                     <ButtonDonation>Apoiar sonho</ ButtonDonation>
-                </DivDonation> 
+                </DivDonation>
             </Div>
         </ Section>
         </ ContainerDreamsPage>
