@@ -11,7 +11,7 @@ const DreamsCards = () => {
         getDreams()
     },[getDreams])
 
-    
+
     return (
         <>
         <DreamsContainer id="dreams">
@@ -19,7 +19,7 @@ const DreamsCards = () => {
                     Alguns sonhos
                 </DreamsH1>
             {dream.length > 0 && dream.map((items, key)=>(
-                <DreamsWrapper>
+                <DreamsWrapper key={key}>
                     <DreamsCard>
                         <DreamsIcon src={Image}/>
                         <DreamsH3 >{items.name}</DreamsH3>
@@ -34,9 +34,9 @@ const DreamsCards = () => {
                             <DreamsObjective>{items.goal}</DreamsObjective>
                         </DreamsDonations>
                         </DreamsCard>
-                </DreamsWrapper>     
-            ))}  
-            </DreamsContainer>                   
+                </DreamsWrapper>
+            ))}
+            </DreamsContainer>
             </>
 
 )}
