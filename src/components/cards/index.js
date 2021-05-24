@@ -18,13 +18,13 @@ const DreamsCards = () => {
                 <DreamsH1>
                     Alguns sonhos
                 </DreamsH1>
+                <DreamsWrapper >
             {dream.length > 0 && dream.map((items, key)=>(
-                <DreamsWrapper key={key}>
-                    <DreamsCard>
+                    <DreamsCard key={key}>
                         <DreamsIcon src={Image}/>
                         <DreamsH3 >{items.name}</DreamsH3>
-                        <DreamsSpan>{items.id}</DreamsSpan>
-                        <DreamsDescription>{items.description}</DreamsDescription>
+                        <DreamsSpan>Id sonho: {items.id}</DreamsSpan>
+                        <DreamsDescription>{items.resume}</DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
                             <DreamUsername>{items.user}</DreamUsername>
@@ -34,8 +34,8 @@ const DreamsCards = () => {
                             <DreamsObjective>{items.goal}</DreamsObjective>
                         </DreamsDonations>
                         </DreamsCard>
-                </DreamsWrapper>
             ))}
+            </DreamsWrapper>
             </DreamsContainer>
             </>
 

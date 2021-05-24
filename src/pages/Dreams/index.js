@@ -6,9 +6,9 @@ import ProgressBar from '../../components/progressBar'
 
 const DreamSection = () => {
     const [goal , setGoal] = useState(0)
-    const [collected, setCollected] = useState(0)
+    const [reached, setReached] = useState(0)
     
-    const value = useMemo(() => ((goal - collected)/goal) * 100, [goal, collected])
+    const value = useMemo(() => ((goal - reached)/goal) * 100, [goal, reached])
     return (
         <>
         <ContainerDreamsPage>
