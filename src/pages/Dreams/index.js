@@ -12,7 +12,7 @@ const DreamSection = () => {
     return (
         <>
         <ContainerDreamsPage>
-            <h1>Título do sonho</h1>
+            <h1>Título</h1>
             <p>Autor do sonho</p>
         <Section>
             <DivCarousel>
