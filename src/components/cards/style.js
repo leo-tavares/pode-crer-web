@@ -39,7 +39,7 @@ export const DreamsWrapper = styled.div`
 
 export const DreamsCard = styled.div`
     background: #01bf71;
-    height: 500px;
+    height: 490px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
