@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRef } from "react";
 import { FaBars } from "react-icons/fa";
+import  SearchBar  from "../searchBar/index";
+
 import {
   MobileIcon,
   Nav,
@@ -35,6 +38,9 @@ const Navbar = ({ toggle }) => {
           </NavItem>
           <NavItem>
             <NavLinks to="dreams">Sonhos</NavLinks>
+          </NavItem>
+          <NavItem>
+            <SearchBar />
           </NavItem>
         </NavMenu>
         <NavBtn>

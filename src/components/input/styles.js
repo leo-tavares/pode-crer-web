@@ -9,7 +9,8 @@ export const Container = styled.div`
 
   border-radius: 8px;
   width: 100%;
-  padding: 16px;
+  padding: 1px 12px;
+  height: 50px;
 
   & + & {
     margin-top: 8px;
