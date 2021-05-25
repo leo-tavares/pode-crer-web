@@ -1,75 +1,44 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import Image from '../../images/image.svg'
 import { DreamsCard, DreamsCollected, DreamsContainer, DreamsDescription, DreamsDonations, DreamsH1, DreamsH3, DreamsIcon, DreamsObjective, DreamsProfile, DreamsSpan, DreamsUserImage, DreamsWrapper, DreamUsername } from './style'
+import { useDream } from '../../hooks/dream'
+
 
 const DreamsCards = () => {
+    const { dream, getDreams } = useDream();
+
+    useEffect(()=>{
+        getDreams()
+    },[getDreams])
+
+
     return (
         <>
-           <DreamsContainer id="dreams">
+        <DreamsContainer id="dreams">
                 <DreamsH1>
                     Alguns sonhos
                 </DreamsH1>
-                <DreamsWrapper>
-                    <DreamsCard>
+                <DreamsWrapper >
+            {dream.length > 0 && dream.map((items, key)=>(
+                    <DreamsCard key={key}>
                         <DreamsIcon src={Image}/>
-                        <DreamsH3>Título do sonho</DreamsH3>
-                        <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
+                        <DreamsH3 >{items.name}</DreamsH3>
+                        <DreamsSpan>Id sonho: {items.id}</DreamsSpan>
+                        <DreamsDescription>{items.resume}</DreamsDescription>
                         <DreamsProfile>
                             <DreamsUserImage src={Image}></DreamsUserImage>
-                            <DreamUsername>Nome do individuo</DreamUsername>
+                            <DreamUsername>{items.user}</DreamUsername>
                         </DreamsProfile>
                         <DreamsDonations>
-                            <DreamsCollected>Arrecadado R$ 0000, 00</DreamsCollected>
-                            <DreamsObjective>Meta R$ 0000,00</DreamsObjective>
+                            <DreamsCollected>{items.reached}</DreamsCollected>
+                            <DreamsObjective>{items.goal}</DreamsObjective>
                         </DreamsDonations>
-                    </DreamsCard>
-                    <DreamsCard>
-                        <DreamsIcon src={Image}/>
-                        <DreamsH3>Título do sonho</DreamsH3>
-                        <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </DreamsDescription>
-                        <DreamsProfile>
-                            <DreamsUserImage src={Image}></DreamsUserImage>
-                            <DreamUsername>Nome do individuo</DreamUsername>
-                        </DreamsProfile>
-                        <DreamsDonations>
-                            <DreamsCollected>Arrecadado R$ 0000, 00</DreamsCollected>
-                            <DreamsObjective>Meta R$ 0000,00</DreamsObjective>
-                        </DreamsDonations>
-                    </DreamsCard>
-                    <DreamsCard>
-                        <DreamsIcon src={Image}/>
-                        <DreamsH3>Título do sonho</DreamsH3>
-                        <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
-                        <DreamsProfile>
-                            <DreamsUserImage src={Image}></DreamsUserImage>
-                            <DreamUsername>Nome do individuo</DreamUsername>
-                        </DreamsProfile>
-                        <DreamsDonations>
-                            <DreamsCollected>Arrecadado R$ 0000, 00</DreamsCollected>
-                            <DreamsObjective>Meta R$ 0000,00</DreamsObjective>
-                        </DreamsDonations>
-                    </DreamsCard>
-                    <DreamsCard>
-                        <DreamsIcon src={Image}/>
-                        <DreamsH3>Título do sonho</DreamsH3>
-                        <DreamsSpan>Id sonho</DreamsSpan>
-                        <DreamsDescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</DreamsDescription>
-                        <DreamsProfile>
-                            <DreamsUserImage src={Image}></DreamsUserImage>
-                            <DreamUsername>Nome do individuo</DreamUsername>
-                        </DreamsProfile>
-                        <DreamsDonations>
-                            <DreamsCollected>Arrecadado R$ 0000, 00</DreamsCollected>
-                            <DreamsObjective>Meta R$ 0000,00</DreamsObjective>
-                        </DreamsDonations>
-                    </DreamsCard>
-                </DreamsWrapper>                   
-            </DreamsContainer> 
-        </>
-    )
-}
+                        </DreamsCard>
+            ))}
+            </DreamsWrapper>
+            </DreamsContainer>
+            </>
+
+)}
 
 export default DreamsCards;
