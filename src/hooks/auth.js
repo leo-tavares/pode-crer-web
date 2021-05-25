@@ -35,9 +35,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signUp = useCallback(
-    async ({ email, password }) => {
-      await api.post("/user", { email, password });
-      await signIn({ email, password });
+    async ({ email, password, name }) => {
+      await api.post("/user", { email, password, name });
+      await signIn({ email, password, name });
       await firebase.auth().currentUser.sendEmailVerification();
     },
     [signIn]
