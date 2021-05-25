@@ -6,7 +6,7 @@ import Button from "../../components/button";
 import Input from "../../components/input";
 import getValidationErros from "../../helper/getValidationErros";
 import { useAuth } from "../../hooks/auth";
-import { Container } from "./styles";
+import { Container, SignUpLink, ForgotPasswordLink } from "./styles";
 
 const SignIn = () => {
   const { signIn } = useAuth();
@@ -14,7 +14,10 @@ const SignIn = () => {
   const handleSubmit = useCallback(
     async (data) => {
       const schema = yup.object().shape({
-        email: yup.string().email("email inválido").required("email é obrigatório"),
+        email: yup
+          .string()
+          .email("email inválido")
+          .required("email é obrigatório"),
         password: yup
           .string()
           .min(6, "A senha deve conter ao menos 6 digitos")
@@ -25,6 +28,7 @@ const SignIn = () => {
         const { email, password } = data;
         await signIn({ email, password });
       } catch (error) {
+        console.log(error)
         const erros = getValidationErros(error);
         formRef.current?.setErrors(erros);
       }
@@ -36,14 +40,16 @@ const SignIn = () => {
       <h1>Faça seu login</h1>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input name={"email"} icon={FiMail} placeholder={"E-mail"} />
+        <ForgotPasswordLink to="recuperarAcesso"> recuperar acesso </ForgotPasswordLink>
         <Input
           name={"password"}
           icon={FiLock}
+          showEye
           placeholder={"Senha"}
-          type="password"
         />
         <Button type="submit">Entrar</Button>
       </Form>
+      <SignUpLink to="signUp">Quero me cadastrar </SignUpLink>
     </Container>
   );
 };

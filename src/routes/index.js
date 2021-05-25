@@ -4,6 +4,7 @@ import DreamSection from "../pages/Dreams";
 import ForgotPassoword from "../pages/ForgotPassword";
 import SignIn from "../pages/SignIn";
 import Error from "../components/errorPage"
+import SignUp from "../pages/SignUp";
 
 const Routes = () => {
   return (
@@ -13,6 +14,9 @@ const Routes = () => {
       </Route>
       <Route path="/login">
         <SignIn />
+      </Route>
+      <Route path="/signUp">
+        <SignUp />
       </Route>
       <Route path="/recuperarAcesso">
         <ForgotPassoword />
