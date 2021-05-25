@@ -22,7 +22,7 @@ const DreamSection = () => {
             <Div>
                 <DivDonation>
                     <DonationH1>R$ 0000,00</DonationH1>
-                    <ProgressBar done={value}/>
+                    <ProgressBar done/>
                     <ButtonDonation>Apoiar sonho</ ButtonDonation>
                 </DivDonation>
             </Div>
