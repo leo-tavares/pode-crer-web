@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Progress, ProgressDone } from './style';
 
 const ProgressBar = ({done}) => {
-	const [style, setStyle] = React.useState({});
+	const [style, setStyle] = useState({});
 	
 	setTimeout(() => {
 		const newStyle = {
