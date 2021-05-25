@@ -1,7 +1,8 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useMemo} from 'react';
 import Image from '../../images/image.svg'
-import { DreamsCard, DreamsCollected, DreamsContainer, DreamsDescription, DreamsDonations, DreamsH1, DreamsH3, DreamsIcon, DreamsObjective, DreamsProfile, DreamsSpan, DreamsUserImage, DreamsWrapper, DreamUsername } from './style'
+import { DreamsCard, DreamsContainer, DreamsDescription, DreamsDonations, DreamsH1, DreamsH3, DreamsIcon, DreamsObjective, DreamsProfile, DreamsSpan, DreamsUserImage, DreamsWrapper, DreamUsername } from './style'
 import { useDream } from '../../hooks/dream'
+import ProgressBar from '../progressBar'
 
 
 const DreamsCards = () => {
@@ -10,7 +11,6 @@ const DreamsCards = () => {
     useEffect(()=>{
         getDreams()
     },[getDreams])
-
 
     return (
         <>
@@ -30,8 +30,8 @@ const DreamsCards = () => {
                             <DreamUsername>{items.user}</DreamUsername>
                         </DreamsProfile>
                         <DreamsDonations>
-                            <DreamsCollected>{items.reached}</DreamsCollected>
-                            <DreamsObjective>{items.goal}</DreamsObjective>
+                        <ProgressBar done={((items.reached * 100) / items.goal).toFixed(2)}/>
+                            <DreamsObjective>META: {items.goal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</DreamsObjective>
                         </DreamsDonations>
                         </DreamsCard>
             ))}
