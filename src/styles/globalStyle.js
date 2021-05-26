@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import 'react-circular-progressbar/dist/styles.css';
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
