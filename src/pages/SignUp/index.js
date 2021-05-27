@@ -28,7 +28,6 @@ const SignUp = () => {
         await schema.validate(data, { abortEarly: false });
         await signUp(data);
       } catch (error) {
-        console.log(error);
         const erros = getValidationErros(error);
         formRef.current?.setErrors(erros);
       }

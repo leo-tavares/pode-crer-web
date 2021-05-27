@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import firebase from "firebase";
-import { clone } from "ramda";
 import api from "../services/api";
 
 const AuthContext = createContext({});
@@ -24,21 +23,16 @@ export const AuthProvider = ({ children }) => {
   });
 
   const signIn = useCallback(async ({ email, password }) => {
-    const { user } = await firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password);
-    const clonedUser = clone(user);
-    const token = await user.getIdToken();
+    const {data: { user, token } } = await api.post("/session", { email, password });
     localStorage.setItem(tokenStorageKey, token);
-    localStorage.setItem(userStorageKey, JSON.stringify(clonedUser));
-    setData({ token, user: clonedUser });
+    localStorage.setItem(userStorageKey, JSON.stringify(user));
+    setData({ token, user });
   }, []);
 
   const signUp = useCallback(
     async ({ email, password, name }) => {
       await api.post("/user", { email, password, name });
-      await signIn({ email, password, name });
-      await firebase.auth().currentUser.sendEmailVerification();
+      await signIn({ email, password });
     },
     [signIn]
   );
