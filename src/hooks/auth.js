@@ -1,5 +1,4 @@
 import { createContext, useCallback, useContext, useState } from "react";
-import firebase from "firebase";
 import api from "../services/api";
 
 const AuthContext = createContext({});
@@ -38,14 +37,13 @@ export const AuthProvider = ({ children }) => {
   );
 
   const signOut = useCallback(async () => {
-    await firebase.auth().signOut();
     localStorage.removeItem(tokenStorageKey);
     localStorage.removeItem(userStorageKey);
     setData({});
   }, []);
 
   const forgotPassword = useCallback(async (email) => {
-    await firebase.auth().sendPasswordResetEmail(email);
+    throw new Error("Not implemented")
   }, []);
 
   return (
