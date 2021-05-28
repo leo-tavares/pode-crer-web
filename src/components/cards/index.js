@@ -18,6 +18,7 @@ import {
 import { useDream } from "../../hooks/dream";
 import ProgressBar from "../progressBar";
 import { useHistory } from "react-router";
+import { FiUser } from 'react-icons/fi'
 
 const DreamsCards = () => {
   const { dream, getDreams } = useDream();
@@ -28,6 +29,7 @@ const DreamsCards = () => {
 
   const history = useHistory();
   const navigateTo = path => () => history.push(path)
+  console.log(dream);
   return (
     <>
       <DreamsContainer id="dreams" >
@@ -36,24 +38,22 @@ const DreamsCards = () => {
           {dream.length > 0 &&
             dream.slice(0, 6).map((items, key) => (
               <DreamsCard key={key} onClick={navigateTo('/dreamssection')}>
-                <DreamsIcon src={Image} />
-                <DreamsH3>{items.name}</DreamsH3>
-                <DreamsSpan>Id sonho: {items.id}</DreamsSpan>
+                <DreamsIcon src={items.picture || Image} />
+                <DreamsH3>{items.title}</DreamsH3>
                 <DreamsDescription>{items.resume}</DreamsDescription>
                 <DreamsProfile>
-                  <DreamsUserImage src={Image}></DreamsUserImage>
-                  <DreamUsername>{items.user}</DreamUsername>
+                  <DreamsUserImage src={items.user_id?.avatar || Image}></DreamsUserImage>
+                  <DreamUsername>{items.user_id?.name}</DreamUsername>
                 </DreamsProfile>
                 <DreamsDonations>
-                  <ProgressBar
-                    done={((items.reached * 100) / items.goal).toFixed(2)}
-                  />
                   <DreamsObjective>
                     META:
-                    {items.goal.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
+                    { new Intl.NumberFormat('pt-br', {
+                        style: 'currency',
+                        currency: 'brl',
+                        maximumSignificantDigits: 2
+                      }).format(items.goal)
+                    }
                   </DreamsObjective>
                 </DreamsDonations>
               </DreamsCard>
