@@ -4,7 +4,9 @@ import CarouselDreams from './components/carouselDream'
 import Description from '../../components/description'
 import ProgressBar from '../../components/progressBar'
 import Sidebar from '../../components/sidebar'
-import Navbar from '../../components/navbar';
+import Navbar from '../../components/navbar'
+import Footer from '../../components/footer'
+
 
 const DreamSection = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -40,6 +42,7 @@ const DreamSection = () => {
             <Description>oi</Description>
             </DivDesc>
             </DivSection>
+        <Footer />
         </>
     )
 }
