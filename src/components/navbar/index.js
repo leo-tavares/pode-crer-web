@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { useRef } from "react";
+import React from "react";
 import { FaBars } from "react-icons/fa";
-import  SearchBar  from "../searchBar/index";
+import SearchBar from "../searchBar/index";
 
 import {
   MobileIcon,
@@ -23,8 +22,8 @@ const Navbar = ({ toggle }) => {
   const navigateTo = (path) => () => {
     history.push(path);
   };
- 
-  const { user } = useAuth(); 
+
+  const { user } = useAuth();
 
   return (
     <Nav>
@@ -34,16 +33,16 @@ const Navbar = ({ toggle }) => {
           <FaBars />
         </MobileIcon>
         <NavMenu>
-          {!user ?
-          <NavItem>
-            <NavLinks onClick={navigateTo("/login")}>Entrar</NavLinks>
-          </NavItem>
-          :null}
-          {!user &&
-          <NavItem>
-            <NavLinks onClick={navigateTo("/sign_up")}>Cadastrar</NavLinks>
-          </NavItem>
-          }
+          {!user ? (
+            <NavItem>
+              <NavLinks onClick={navigateTo("/login")}>Entrar</NavLinks>
+            </NavItem>
+          ) : null}
+          {!user && (
+            <NavItem>
+              <NavLinks onClick={navigateTo("/signUp")}>Cadastrar</NavLinks>
+            </NavItem>
+          )}
           <NavItem>
             <NavLinks to="dreams">Sonhos</NavLinks>
           </NavItem>
@@ -52,7 +51,7 @@ const Navbar = ({ toggle }) => {
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="/dream">Criar sonho</NavBtnLink>
+          <NavBtnLink to="/createDream">Criar sonho</NavBtnLink>
         </NavBtn>
         <Logged />
       </NavbarContainer>
