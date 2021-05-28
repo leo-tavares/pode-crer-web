@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useRef } from "react";
+import React from "react";
 import { FaBars } from "react-icons/fa";
 import  SearchBar  from "../searchBar/index";
 

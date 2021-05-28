@@ -40,7 +40,6 @@ export const VideoBg = styled.video`
     -o-object-fit: cover;
     object-fit: cover;
     background: #232a34;
-
 `
 
 export const GetStartedContent = styled.div`

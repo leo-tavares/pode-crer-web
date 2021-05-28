@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const DreamsContainer = styled.div`
-    height: 960px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #fff;
+    margin-top: 100px;
 
     @media screen and (max-width: 768px) {
         height: 1000px;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const DreamsContainer = styled.div`
-    height: 960px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #fff;
+
 
     @media screen and (max-width: 768px) {
         height: 1000px;
@@ -28,6 +28,7 @@ export const DreamsWrapper = styled.div`
 
     @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;
+        align-items: center;
     }
 
     @media screen and (max-width: 768px) {
@@ -62,6 +63,12 @@ export const DreamsIcon = styled.img`
 export const DreamsH1 = styled.h1`
     font-size: 2.5rem;
     color: #01bf71;
+    margin: auto;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 0;
+    }
 
 `;
 

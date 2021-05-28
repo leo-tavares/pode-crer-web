@@ -1,12 +1,12 @@
 import React from 'react'
-import { ImageNotFound, NotFound } from './style';
-import ImageErro from "../../images/error-404.jpg"
+import { NotFound } from './style';
 
 
 const Error = () => {
     return (
         <NotFound>
-            <ImageNotFound src={ImageErro} alt="Página não encontrada" />
+            <h1>PodeCrer</h1>
+            <span>A página que você está buscando não existe ou foi removida :(</span>
         </NotFound>
     )
 }

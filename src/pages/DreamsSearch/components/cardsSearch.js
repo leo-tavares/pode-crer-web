@@ -18,6 +18,7 @@ import { useDream } from "../../../hooks/dream";
 import ProgressBar from "../../../components/progressBar";
 import { useHistory } from "react-router";
 
+
 const CardsSearch = () => {
   const { dream, getDreams } = useDream();
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import Image from "../../images/image.svg";
 import {
   DreamsCard,
@@ -34,7 +34,7 @@ const DreamsCards = () => {
         <DreamsH1>Alguns sonhos</DreamsH1>
         <DreamsWrapper>
           {dream.length > 0 &&
-            dream.map((items, key) => (
+            dream.slice(0, 6).map((items, key) => (
               <DreamsCard key={key} onClick={navigateTo('/dreamssection')}>
                 <DreamsIcon src={Image} />
                 <DreamsH3>{items.name}</DreamsH3>
