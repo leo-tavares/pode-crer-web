@@ -97,3 +97,4 @@ export const DivDescription = styled.div`
     background-color: #f1f4f4;
 
 `
+export const DreamImg = styled.img``

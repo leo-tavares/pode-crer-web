@@ -5,11 +5,15 @@ const DreamContext = createContext({});
 
 export const DreamProvider = ({ children }) => {
   const [dream, setDream] = useState({});
-
+  const [current, setCurrent] = useState();
   const getDreams = useCallback(async () => {
     const { data } = await api.get("/dream");
     setDream(data);
   }, []);
+
+  const setCurrentDream = useCallback((current) => {
+    setCurrent(current)
+  },[])
 
   const uploadImage = useCallback(async (id, img) => {
     const formData = new FormData();
@@ -52,11 +56,13 @@ export const DreamProvider = ({ children }) => {
     <DreamContext.Provider
       value={{
         dream,
+        current,
         getDreams,
         uploadImage,
         createDream,
         setCreateData,
-        searchSpecifcDreams
+        searchSpecifcDreams,
+        setCurrentDream
       }}
     >
       {children}
