@@ -3,13 +3,15 @@ import { InputForm, InputField, SearchBtn } from "./style";
 import { FaSearch } from "react-icons/fa";
 import { useDream } from "../../hooks/dream";
 import getValidationErros from "../../helper/getValidationErros";
+import { useHistory } from "react-router";
 
 export function SearchBar() {
   const formRef = useRef(null);
-  const [dataInput, setDataInput] = useState();
+  const history = useHistory();
   const { searchSpecifcDreams } = useDream();
   const handleSubmit = useCallback(
     async ({ search }) => {
+      history.push('/dreamSearch')
       try {
         if (!search || /^\s*$/.test(search)) {
           alert("O campo de busca não pode ser vazia ou em branch");
@@ -20,7 +22,7 @@ export function SearchBar() {
         formRef.current?.search(erros);
       }
     },
-    [searchSpecifcDreams]
+    [history, searchSpecifcDreams]
   );
   return (
     <InputForm onSubmit={handleSubmit}>
