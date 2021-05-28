@@ -3,11 +3,12 @@ import Dashboard from "../pages/Dashboard";
 import DreamSection from "../pages/Dreams";
 import ForgotPassoword from "../pages/ForgotPassword";
 import SignIn from "../pages/SignIn";
-import Error from "../components/errorPage"
+import Error from "../components/errorPage";
 import SignUp from "../pages/SignUp";
 import CreateDream from "../pages/CreateDream";
 import Profile from "../pages/Profile";
 import DreamsSearch from "../pages/DreamsSearch";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = () => {
   return (
@@ -27,9 +28,7 @@ const Routes = () => {
       <Route path="/dreamssection">
         <DreamSection />
       </Route>
-      <Route path="/createdream">
-        <CreateDream />
-      </Route>
+      <PrivateRoute isPrivate component={CreateDream} path="/createdream" />
       <Route path="/dreamSearch">
         <DreamsSearch />
       </Route>
