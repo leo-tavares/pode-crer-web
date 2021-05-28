@@ -30,6 +30,11 @@ export const DreamProvider = ({ children }) => {
     await uploadImage(data.dream.id, dream.newDream?.picture);
   }, [dream.newDream, uploadImage]);
 
+  const searchSpecifcDreams = useCallback(async (title) => {
+    const {data} = await api.get(`/dream/search/${title}/1`)
+    setDream(data);
+  }, [])
+
   const setCreateData = useCallback(
     async (key, value) => {
       setDream({
@@ -42,7 +47,7 @@ export const DreamProvider = ({ children }) => {
     },
     [dream]
   );
-
+    console.log(dream);
   return (
     <DreamContext.Provider
       value={{
@@ -51,6 +56,7 @@ export const DreamProvider = ({ children }) => {
         uploadImage,
         createDream,
         setCreateData,
+        searchSpecifcDreams
       }}
     >
       {children}

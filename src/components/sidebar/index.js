@@ -4,7 +4,7 @@ import Logged from '../logged';
 import { CloseIcon, Icon, SidebarContainer, SidebarLink, SidebarMenu, SidebarRoute, SidebarWrapper, SideBtnWrap } from './style'
 
 const Sidebar = ({ isOpen, toggle }) => {
-    const { user } = useAuth(); 
+    const { user } = useAuth();
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
