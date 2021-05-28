@@ -25,6 +25,7 @@ export const DreamsWrapper = styled.div`
     align-items: center;
     grid-gap: 16px;
     padding: 0 50px;
+    margin-bottom: 50px;
 
     @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;
