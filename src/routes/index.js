@@ -7,6 +7,7 @@ import Error from "../components/errorPage"
 import SignUp from "../pages/SignUp";
 import CreateDream from "../pages/CreateDream";
 import Profile from "../pages/Profile";
+import DreamsSearch from "../pages/DreamsSearch";
 
 const Routes = () => {
   return (
@@ -28,6 +29,9 @@ const Routes = () => {
       </Route>
       <Route path="/createdream">
         <CreateDream />
+      </Route>
+      <Route path="/dreamSearch">
+        <DreamsSearch />
       </Route>
       <Route path="/profile">
         <Profile />
