@@ -3,19 +3,54 @@ import api from "../services/api";
 
 const DreamContext = createContext({});
 
-export const DreamProvider = ({ children}) => {
+export const DreamProvider = ({ children }) => {
   const [dream, setDream] = useState({});
 
   const getDreams = useCallback(async () => {
-    const { data } = await api.get('/dream');
-    setDream(data)
-  },[]);
+    const { data } = await api.get("/dream");
+    setDream(data);
+  }, []);
+
+  const uploadImage = useCallback(async (id, img) => {
+    const formData = new FormData();
+    formData.append("imagem", img);
+    const { data } = await api.post(`/dream/picture/${id}`, formData, {
+      headers: {
+        "Content-Type": `multipart/form-data;`,
+      },
+    });
+  }, []);
+
+  const createDream = useCallback(async () => {
+    const { data } = await api.post("/dream", {
+      ...dream.newDream,
+      picture: undefined,
+      userId: 1,
+    });
+    await uploadImage(data.dream.id, dream.newDream?.picture);
+  }, [dream.newDream, uploadImage]);
+
+  const setCreateData = useCallback(
+    async (key, value) => {
+      setDream({
+        ...dream,
+        newDream: {
+          ...dream.newDream,
+          [key]: value,
+        },
+      });
+    },
+    [dream]
+  );
 
   return (
     <DreamContext.Provider
       value={{
         dream,
-        getDreams
+        getDreams,
+        uploadImage,
+        createDream,
+        setCreateData,
       }}
     >
       {children}
