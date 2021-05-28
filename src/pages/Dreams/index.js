@@ -2,7 +2,8 @@ import React, { useMemo, useState } from 'react'
 import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
 import CarouselDreams from './components/carouselDream'
 import Description from '../../components/description'
-import ProgressBar from '../../components/progressBar'
+import ProgressBar from '../../components/progressBar';
+
 
 const DreamSection = () => {
     const [goal , setGoal] = useState(0)

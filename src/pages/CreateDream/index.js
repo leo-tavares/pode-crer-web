@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import GlobalStyle from '../../styles/globalStyle'
 import Navbar from '../../components/navbar';
 import Dropzone from '../../components/upload';
-
+import Footer from '../../components/footer'
 import { Container, Content } from './style';
 import TextArea from '../../components/formMessage';
 
@@ -20,6 +20,7 @@ const CreateDream = () => {
             </Content>
             <GlobalStyle />
         </Container>
+        <Footer />
         </>
     )
 }
