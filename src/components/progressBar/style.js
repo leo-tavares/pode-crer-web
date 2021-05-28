@@ -6,7 +6,7 @@ export const Progress = styled.div`
     position: relative;
     margin: 15px 0;
     height: 15px;
-    width: 200px;
+    max-width: 200px;
 `
 
 export const ProgressDone = styled.div`
@@ -20,7 +20,7 @@ export const ProgressDone = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 0;
+    max-width: 100%;
     opacity: 0;
     transition: 1s ease 0.3s;
 `
