@@ -23,7 +23,7 @@ const Footer = () => {
             <FooterDiv>
                 <FooterContent >
                     <h3> Pode Crer</h3>
-                    <p>Desenvolvido com muito amor e carinho pela <a href="#" > equipe G3</a> </p>
+                    <p>Desenvolvido com muito amor e carinho pela <a href="/contact" > equipe G3</a> </p>
                     <FooterList>
                         <FooterItem>
                             <FaFacebookF />
