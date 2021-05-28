@@ -33,6 +33,7 @@ const SignIn = () => {
         history.push('/')
       } catch (error) {
         console.log(error)
+        alert("Dados Incorretos")
         const erros = getValidationErros(error);
         formRef.current?.setErrors(erros);
       }

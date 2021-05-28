@@ -13,11 +13,11 @@ import {
   NavLogo,
   NavMenu,
 } from "./style";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import Logged from "../logged";
 import { useAuth } from "../../hooks/auth";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, searchDream }) => {
   const history = useHistory();
   const navigateTo = (path) => () => {
     history.push(path);
