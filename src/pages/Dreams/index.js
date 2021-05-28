@@ -5,6 +5,7 @@ import Description from '../../components/description'
 import ProgressBar from '../../components/progressBar'
 import Sidebar from '../../components/sidebar'
 import Navbar from '../../components/navbar';
+import ModalConfirm from '../../components/modalConfirm';
 
 const DreamSection = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -12,6 +13,19 @@ const DreamSection = () => {
     const toggle = () => {
         setIsOpen(!isOpen)
     }
+
+    const [visible, setVisible] = useState(true);
+
+    function showModal() {
+        if (visible == true) {
+            return <ModalConfirm switchVisible={switchVisible}/>
+        }
+    }
+    function switchVisible() {
+        setVisible(!visible);
+    }
+    
+
 
     return (
         <>
@@ -29,7 +43,10 @@ const DreamSection = () => {
                 <DivDonation>
                     <DonationH1>oi</DonationH1>
                     <ProgressBar done/>
-                    <ButtonDonation>Apoiar sonho</ ButtonDonation>
+                    <ButtonDonation
+                        onClick={switchVisible}
+                    
+                    >Apoiar sonho</ ButtonDonation>
                 </DivDonation>
             </Div>
         </ Section>
@@ -40,6 +57,8 @@ const DreamSection = () => {
             <Description>oi</Description>
             </DivDesc>
             </DivSection>
+
+            {showModal()}
         </>
     )
 }
