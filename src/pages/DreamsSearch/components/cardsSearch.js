@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo } from "react";
-import Image from "../../images/image.svg";
+import React, { useEffect } from "react";
+import Image from "../../../images/image.svg";
 import {
   DreamsCard,
   DreamsContainer,
   DreamsDescription,
   DreamsDonations,
-  DreamsH1,
   DreamsH3,
   DreamsIcon,
   DreamsObjective,
@@ -15,11 +14,11 @@ import {
   DreamsWrapper,
   DreamUsername,
 } from "./style";
-import { useDream } from "../../hooks/dream";
-import ProgressBar from "../progressBar";
+import { useDream } from "../../../hooks/dream";
+import ProgressBar from "../../../components/progressBar";
 import { useHistory } from "react-router";
 
-const DreamsCards = () => {
+const CardsSearch = () => {
   const { dream, getDreams } = useDream();
 
   useEffect(() => {
@@ -31,8 +30,7 @@ const DreamsCards = () => {
   return (
     <>
       <DreamsContainer id="dreams" >
-        <DreamsH1>Alguns sonhos</DreamsH1>
-        <DreamsWrapper>
+        <DreamsWrapper >
           {dream.length > 0 &&
             dream.map((items, key) => (
               <DreamsCard key={key} onClick={navigateTo('/dreamssection')}>
@@ -64,4 +62,4 @@ const DreamsCards = () => {
   );
 };
 
-export default DreamsCards;
+export default CardsSearch;

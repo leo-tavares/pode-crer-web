@@ -1,20 +1,23 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect } from 'react'
 import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
 import CarouselDreams from './components/carouselDream'
 import Description from '../../components/description'
-import ProgressBar from '../../components/progressBar';
-
+import ProgressBar from '../../components/progressBar'
+import { useDream } from '../../hooks/dream'
 
 const DreamSection = () => {
-    const [goal , setGoal] = useState(0)
-    const [collected, setCollected] = useState(0)
+    const { dream, getDreams } = useDream();
 
-    const value = useMemo(() => ((goal - collected)/goal) * 100, [goal, collected])
+  useEffect(() => {
+    getDreams();
+  }, [getDreams]);
+
+
     return (
         <>
         <ContainerDreamsPage>
-            <h1>Título</h1>
-            <p>Autor do sonho</p>
+            <div>oi</div>
+            <p>oi</p>
         <Section>
             <DivCarousel>
                 <CarouselDreams />
@@ -22,7 +25,7 @@ const DreamSection = () => {
 
             <Div>
                 <DivDonation>
-                    <DonationH1>R$ 0000,00</DonationH1>
+                    <DonationH1>oi</DonationH1>
                     <ProgressBar done/>
                     <ButtonDonation>Apoiar sonho</ ButtonDonation>
                 </DivDonation>
@@ -31,8 +34,8 @@ const DreamSection = () => {
         </ ContainerDreamsPage>
             <DivSection>
             <DivDesc>
-                <DivDescription >Descrição</DivDescription>
-            <Description />
+                <DivDescription>Descrição</DivDescription>
+            <Description>oi</Description>
             </DivDesc>
             </DivSection>
         </>
