@@ -17,6 +17,7 @@ import Description from "../../components/description";
 import ProgressBar from "../../components/progressBar";
 import Sidebar from "../../components/sidebar";
 import Navbar from "../../components/navbar";
+import ModalConfirm from '../../components/modalConfirm'
 import { useDream } from "../../hooks/dream";
 
 const DreamSection = () => {
@@ -25,6 +26,19 @@ const DreamSection = () => {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
+
+  const [visible, setVisible] = useState(false);
+  function switchVisible() {
+    setVisible(!visible);
+  }
+
+    function showModal() {
+        if (visible === true) {
+            return <ModalConfirm switchVisible={switchVisible}/>
+        }
+    }
+
   console.log(current);
   return (
     <>
@@ -49,6 +63,7 @@ const DreamSection = () => {
           <Description>{current.description}</Description>
         </DivDesc>
       </DivSection>
+      {showModal()}
     </>
   );
 };
