@@ -6,7 +6,7 @@ import SignIn from "../pages/SignIn";
 import Error from "../components/errorPage"
 import SignUp from "../pages/SignUp";
 import CreateDream from "../pages/CreateDream";
-import DreamsSearch from "../pages/DreamsSearch";
+import Profile from "../pages/Profile";
 
 const Routes = () => {
   return (
@@ -29,8 +29,8 @@ const Routes = () => {
       <Route path="/createdream">
         <CreateDream />
       </Route>
-      <Route path="/dreamssearch">
-        <DreamsSearch />
+      <Route path="/profile">
+        <Profile />
       </Route>
       <Route path="*" component={Error} />
     </Switch>
