@@ -6,6 +6,7 @@ export const ContainerDreamsPage = styled.div `
     justify-content: center;
     align-items: center;
     background-color: #f1f4f4;
+    margin-top: 80px;
 
 `
 

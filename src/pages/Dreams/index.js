@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { ContainerDreamsPage, DivDonation, Section, Div, ButtonDonation, DonationH1, DivSection, DivCarousel, DivDescription, DivDesc } from './style'
 import CarouselDreams from './components/carouselDream'
 import Description from '../../components/description'
 import ProgressBar from '../../components/progressBar'
-import { useDream } from '../../hooks/dream'
+import Sidebar from '../../components/sidebar'
+import Navbar from '../../components/navbar';
 
 const DreamSection = () => {
-    const { dream, getDreams } = useDream();
+    const [isOpen, setIsOpen] = useState(false)
 
-  useEffect(() => {
-    getDreams();
-  }, [getDreams]);
-
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>
+        <Sidebar isOpen={isOpen} toggle={toggle}/>
+        <Navbar toggle={toggle}/>
         <ContainerDreamsPage>
             <div>oi</div>
             <p>oi</p>
