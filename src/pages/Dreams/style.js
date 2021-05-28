@@ -27,7 +27,7 @@ export const ImageDream = styled.img`
     width: 700px;
 `
 
-export const DivCarousel = styled.div`
+export const DivImage = styled.div`
     width: 700px;
     height: 500px;
 `
