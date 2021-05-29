@@ -44,7 +44,7 @@ const Navbar = ({ toggle, searchDream }) => {
             </NavItem>
           )}
           <NavItem>
-            <NavLinks to="dreams">Sonhos</NavLinks>
+            <NavLinks onClick={navigateTo("/dreamsearch")}>Sonhos</NavLinks>
           </NavItem>
           <NavItem>
             <SearchBar />

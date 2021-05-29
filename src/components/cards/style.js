@@ -6,6 +6,7 @@ export const DreamsContainer = styled.div`
     justify-content: center;
     align-items: center;
     background: #fff;
+    margin-bottom: 10px;
 
 
     @media screen and (max-width: 768px) {

@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { useHistory } from "react-router";
 import { useDream } from "../../hooks/dream";
+import { Container } from "./style";
+import Footer from "../../components/footer"
 
 const TextArea = () => {
   const [description, setDescription] = useState("");
@@ -21,7 +23,8 @@ const TextArea = () => {
   }, [createDream, history])
 
   return (
-    <div>
+    <>
+    <Container>
       <label for="mensagem">Descreva seu sonho:</label>
       <textarea
         cols="70"
@@ -32,6 +35,7 @@ const TextArea = () => {
         onBlur={() => setCreateData("description", description)}
         required
       ></textarea>
+      <div>
       <button onClick={voltarInicio}>Agora não!</button>
       <input
         type="submit"
@@ -39,7 +43,9 @@ const TextArea = () => {
         onClick={submitOnClick}
         className="enviar"
       />
-    </div>
+      </div>
+      </Container>
+      </>
   );
 };
 

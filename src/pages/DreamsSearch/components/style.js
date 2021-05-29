@@ -8,6 +8,7 @@ export const DreamsContainer = styled.div`
     align-items: center;
     background: #fff;
     margin-top: 100px;
+    margin-bottom: 10px;
 
     @media screen and (max-width: 768px) {
         height: 1000px;
