@@ -83,7 +83,7 @@ export const DivDesc = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    width: 50%;
+    width: 80%;
 `
 
 export const DivDescription = styled.div`
@@ -95,6 +95,7 @@ export const DivDescription = styled.div`
     padding: 10px 160px;
     border-bottom: 5px solid #01bf71;
     background-color: #f1f4f4;
+    width: 100%;
 
 `
 export const DreamImg = styled.img``
