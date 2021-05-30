@@ -10,7 +10,6 @@ import {
   DreamsIcon,
   DreamsObjective,
   DreamsProfile,
-  DreamsSpan,
   DreamsUserImage,
   DreamsWrapper,
   DreamUsername,
@@ -31,7 +30,7 @@ const DreamsCards = () => {
   return (
     <>
       <DreamsContainer id="dreams">
-        <DreamsH1>Alguns sonhos</DreamsH1>
+        <h1>Alguns sonhos</h1>
         <DreamsWrapper>
           {dream.length > 0 &&
             dream.slice(0, 6).map((items, key) => {
@@ -45,7 +44,7 @@ const DreamsCards = () => {
                 >
                   <DreamsIcon src={items.picture || Image} />
                   <DreamsH3>{items.title}</DreamsH3>
-                  <DreamsDescription>{items.resume}</DreamsDescription>
+                  <DreamsDescription>{items.description.substring(0, 150) + "..."}</DreamsDescription>
                   <DreamsProfile>
                     <DreamsUserImage
                       src={items.user_id?.avatar || Image}

@@ -66,7 +66,7 @@ const DreamSection = () => {
       </ContainerDreamsPage>
       <DivSection>
         <DivDesc>
-          <DivDescription>{current.resume}</DivDescription>
+          <DivDescription>Descrição</DivDescription>
           <Description>{current.description}</Description>
         </DivDesc>
       </DivSection>
