@@ -5,5 +5,5 @@ export const DescriptionSection = styled.div`
     align-items: center;
     justify-content: center;
     width: 600px;
-    margin-left: 190px;
+    text-align: center;
 `

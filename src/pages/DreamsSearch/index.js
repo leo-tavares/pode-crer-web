@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar'
 import Sidebar from '../../components/sidebar'
-import CardsSearch from './components/cardsSearch'
+import { CardsSearch } from './style'
 import Footer from '../../components/footer'
 
 
@@ -15,7 +15,7 @@ const DreamsSearch = () => {
         <>
           <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <CardsSearch/>
+            <CardsSearch />
             <Footer />  
         </>
     )

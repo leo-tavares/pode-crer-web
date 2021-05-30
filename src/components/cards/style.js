@@ -47,6 +47,7 @@ export const DreamsCard = styled.div`
     justify-content: flex-start;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    height: 460px;
 
     &:hover {
         transform: scale(1.02);
@@ -86,10 +87,12 @@ export const DreamsSpan = styled.span`
 `;
 
 export const DreamsDescription = styled.span `
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     color: #fff;
     margin-top: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 `
 
 export const DreamsProfile = styled.div`
