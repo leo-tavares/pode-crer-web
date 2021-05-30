@@ -1,6 +1,7 @@
 import { Form } from "@unform/web";
 import { useCallback, useRef } from "react";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import Button from "../../components/button";
 import Input from "../../components/input";
@@ -11,6 +12,7 @@ import { Container, NavigatoToHome, SignInLink } from "./styles";
 const SignUp = () => {
   const { signUp } = useAuth();
   const formRef = useRef(null);
+  const history = useHistory()
   const handleSubmit = useCallback(
     async (data) => {
       const schema = yup.object().shape({
@@ -27,7 +29,9 @@ const SignUp = () => {
       try {
         await schema.validate(data, { abortEarly: false });
         await signUp(data);
+        history.push('/')
       } catch (error) {
+        console.log(error);
         const erros = getValidationErros(error);
         formRef.current?.setErrors(erros);
       }

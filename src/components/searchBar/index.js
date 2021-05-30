@@ -14,7 +14,7 @@ export function SearchBar() {
       history.push('/dreamSearch')
       try {
         if (!search || /^\s*$/.test(search)) {
-          alert("O campo de busca não pode ser vazia ou em branch");
+          alert("O campo de busca não pode ser vazio ou em branco");
         }
         await searchSpecifcDreams(search);
       } catch (error) {

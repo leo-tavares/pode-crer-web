@@ -1,46 +1,36 @@
-import React from 'react';
-
+import React, { useCallback } from "react";
+import { useAuth } from "../../hooks/auth";
 
 import {
-    CardDiv,
-    ButtonConfirm,
-    FieldDescription,
-    FieldValue,
-    MainContainer,
-    ButtonClose
-} from './styles'
+  CardDiv,
+  ButtonConfirm,
+  FieldDescription,
+  FieldValue,
+  MainContainer,
+  ButtonClose,
+} from "./styles";
 
+const ModalConfirm = ({ switchVisible, description }) => {
+  return (
+    <MainContainer>
+      <CardDiv>
+        <ButtonClose onClick={switchVisible}> X </ButtonClose>
+        <h1> Confirme Sua doação! </h1>
+        <FieldDescription>{description}</FieldDescription>
+        <FieldValue>
+          <h5> Valor: </h5>
+          <input type="number" />
+        </FieldValue>
 
-
-const ModalConfirm = ({switchVisible}) => {
-
-
-
-
-    return (
-        <MainContainer>
-
-        
-        <CardDiv>
-            <ButtonClose
-                onClick={switchVisible}
-            > X </ButtonClose>
-            <h1> Confirme Sua doação! </h1>
-            <FieldDescription>
-                Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            </FieldDescription>
-            <FieldValue>
-                <h5> Valor: </h5>
-                <input type='number' />
-            </FieldValue>
-
-
-
-
-            <ButtonConfirm children={"Ajudar esse sonho"} />
-        </CardDiv>
-        </MainContainer>
-    )
-}
+        <ButtonConfirm children={"Ajudar esse sonho"} onClick={useCallback(() => {
+          const token = localStorage.getItem("@podecrer:token");
+          if(!token){
+            alert("Você deve estar logado para realizar uma doação")
+          }
+        },[])} />
+      </CardDiv>
+    </MainContainer>
+  );
+};
 
 export default ModalConfirm;

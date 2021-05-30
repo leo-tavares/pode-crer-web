@@ -6,6 +6,7 @@ export const DreamsContainer = styled.div`
     justify-content: center;
     align-items: center;
     background: #fff;
+    margin-bottom: 10px;
 
 
     @media screen and (max-width: 768px) {
@@ -41,7 +42,6 @@ export const DreamsWrapper = styled.div`
 
 export const DreamsCard = styled.div`
     background: #01bf71;
-    height: 490px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

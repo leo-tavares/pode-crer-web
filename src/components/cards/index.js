@@ -16,48 +16,55 @@ import {
   DreamUsername,
 } from "./style";
 import { useDream } from "../../hooks/dream";
-import ProgressBar from "../progressBar";
 import { useHistory } from "react-router";
 
 const DreamsCards = () => {
-  const { dream, getDreams } = useDream();
+  const { dream, getDreams, setCurrentDream } = useDream();
 
   useEffect(() => {
     getDreams();
   }, [getDreams]);
 
   const history = useHistory();
-  const navigateTo = path => () => history.push(path)
+  const navigateTo = (path) => history.push(path);
+  console.log(dream);
   return (
     <>
-      <DreamsContainer id="dreams" >
+      <DreamsContainer id="dreams">
         <DreamsH1>Alguns sonhos</DreamsH1>
         <DreamsWrapper>
           {dream.length > 0 &&
-            dream.slice(0, 6).map((items, key) => (
-              <DreamsCard key={key} onClick={navigateTo('/dreamssection')}>
-                <DreamsIcon src={Image} />
-                <DreamsH3>{items.name}</DreamsH3>
-                <DreamsSpan>Id sonho: {items.id}</DreamsSpan>
-                <DreamsDescription>{items.resume}</DreamsDescription>
-                <DreamsProfile>
-                  <DreamsUserImage src={Image}></DreamsUserImage>
-                  <DreamUsername>{items.user}</DreamUsername>
-                </DreamsProfile>
-                <DreamsDonations>
-                  <ProgressBar
-                    done={((items.reached * 100) / items.goal).toFixed(2)}
-                  />
-                  <DreamsObjective>
-                    META:
-                    {items.goal.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
-                  </DreamsObjective>
-                </DreamsDonations>
-              </DreamsCard>
-            ))}
+            dream.slice(0, 6).map((items, key) => {
+              return (
+                <DreamsCard
+                  key={key}
+                  onClick={() => {
+                    setCurrentDream(items);
+                    navigateTo("/dreamssection")
+                  }}
+                >
+                  <DreamsIcon src={items.picture || Image} />
+                  <DreamsH3>{items.title}</DreamsH3>
+                  <DreamsDescription>{items.resume}</DreamsDescription>
+                  <DreamsProfile>
+                    <DreamsUserImage
+                      src={items.user_id?.avatar || Image}
+                    ></DreamsUserImage>
+                    <DreamUsername>{items.user_id?.name}</DreamUsername>
+                  </DreamsProfile>
+                  <DreamsDonations>
+                    <DreamsObjective>
+                      META:
+                      {new Intl.NumberFormat("pt-br", {
+                        style: "currency",
+                        currency: "brl",
+                        maximumSignificantDigits: 2,
+                      }).format(items.goal)}
+                    </DreamsObjective>
+                  </DreamsDonations>
+                </DreamsCard>
+              );
+            })}
         </DreamsWrapper>
       </DreamsContainer>
     </>
