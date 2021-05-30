@@ -26,6 +26,7 @@ export const DreamsWrapper = styled.div`
     align-items: center;
     grid-gap: 16px;
     padding: 0 50px;
+    margin-bottom: 50px;
 
     @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;
@@ -41,7 +42,6 @@ export const DreamsWrapper = styled.div`
 
 export const DreamsCard = styled.div`
     background: #01bf71;
-    height: 490px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

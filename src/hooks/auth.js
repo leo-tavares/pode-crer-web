@@ -22,7 +22,9 @@ export const AuthProvider = ({ children }) => {
   });
 
   const signIn = useCallback(async ({ email, password }) => {
-    const {data: { user, token } } = await api.post("/session", { email, password });
+    const {
+      data: { user, token },
+    } = await api.post("/session", { email, password });
     localStorage.setItem(tokenStorageKey, token);
     localStorage.setItem(userStorageKey, JSON.stringify(user));
     setData({ token, user });
@@ -43,12 +45,19 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const forgotPassword = useCallback(async (email) => {
-    throw new Error("Not implemented")
+    throw new Error("Not implemented");
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ user: data.user, signIn, signOut, signUp, forgotPassword }}
+      value={{
+        user: data.user,
+        token: data.token,
+        signIn,
+        signOut,
+        signUp,
+        forgotPassword,
+      }}
     >
       {children}
     </AuthContext.Provider>
