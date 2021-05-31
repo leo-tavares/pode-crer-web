@@ -40,9 +40,7 @@ const Routes = () => {
       <Route path="/contact">
         <Contact />
       </Route>
-      <Route path="/userdashboard">
-        <UserDashboard />
-      </Route>
+      <PrivateRoute isPrivate component={UserDashboard} path="/userdashboard" />
       <Route path="*" component={Error} />
     </Switch>
   );
