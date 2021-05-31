@@ -7,14 +7,11 @@ import {
   ButtonDonation,
   DonationH1,
   DivSection,
-  DivCarousel,
   DivDescription,
   DivDesc,
   DreamImg,
 } from "./style";
-import CarouselDreams from "./components/carouselDream";
 import Description from "../../components/description";
-import ProgressBar from "../../components/progressBar";
 import Sidebar from "../../components/sidebar";
 import Navbar from "../../components/navbar";
 import ModalConfirm from "../../components/modalConfirm";
@@ -32,19 +29,6 @@ const DreamSection = () => {
   function switchVisible() {
     setVisible(!visible);
   }
-
-  function showModal() {
-    if (visible === true) {
-      return (
-        <ModalConfirm
-          description={current.description}
-          switchVisible={switchVisible}
-        />
-      );
-    }
-  }
-
-  console.log(current);
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
@@ -70,7 +54,12 @@ const DreamSection = () => {
           <Description>{current.description}</Description>
         </DivDesc>
       </DivSection>
-      {showModal()}
+      {visible && (
+        <ModalConfirm
+          description={current.description}
+          switchVisible={switchVisible}
+        />
+      )}
     </>
   );
 };

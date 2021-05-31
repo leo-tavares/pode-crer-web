@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { FiX } from "react-icons/fi";
+import { useHistory } from "react-router";
 import { useAuth } from "../../hooks/auth";
 import { useDream } from "../../hooks/dream";
 
@@ -16,6 +17,7 @@ const ModalConfirm = ({ switchVisible, description }) => {
   const { token } = useAuth();
   const { donate } = useDream();
   const [value, setValue] = useState(0);
+  const history = useHistory();
   return (
     <MainContainer>
       <CardDiv>
@@ -37,10 +39,12 @@ const ModalConfirm = ({ switchVisible, description }) => {
             }
             try {
               await donate(value);
+              switchVisible();
+              history.push("userdashboard");
             } catch (error) {
               alert(error?.response?.data?.message || "Ops!");
             }
-          }, [donate, token, value])}
+          }, [donate, switchVisible, token, value])}
         />
       </CardDiv>
     </MainContainer>
