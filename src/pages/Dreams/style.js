@@ -8,6 +8,11 @@ export const ContainerDreamsPage = styled.div `
     background-color: #f1f4f4;
     margin-top: 80px;
 
+    div {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
 `
 
 export const Section = styled.div `
@@ -96,6 +101,7 @@ export const DivDescription = styled.div`
     border-bottom: 5px solid #01bf71;
     background-color: #f1f4f4;
     width: 100%;
+    text-align: center;
 
 `
 export const DreamImg = styled.img``

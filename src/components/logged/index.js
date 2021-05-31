@@ -17,7 +17,7 @@ const Logged = () => {
         <>
         {user ?
         <LoggedDiv>
-            <span>{user.email}</span>
+            <span>{user.name}</span>
             <Logout onClick={logout}>SAIR</Logout>
         </LoggedDiv> 
         :null}
