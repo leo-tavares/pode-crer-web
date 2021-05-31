@@ -1,14 +1,13 @@
-import Navbar from '../../components/navbar';
-import UserHistory from '../../components/userHistory';
+import Navbar from "../../components/navbar";
+import UserHistory from "../../components/userHistory";
 
-
-export default function UserDashboard() {
-
-    return (
-        <>
-            <Navbar />
-            teste
-            <UserHistory />
-        </>
-    )
+function UserDashboard() {
+  return (
+    <>
+      <Navbar />
+      <UserHistory />
+    </>
+  );
 }
+
+export default UserDashboard;

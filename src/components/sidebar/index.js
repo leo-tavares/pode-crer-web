@@ -25,7 +25,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                     <SidebarLink to='dreams' onClick={toggle}>
                         Sonhos
                     </SidebarLink>
-                    <Logged />
+                    {user && <Logged />}
                 </SidebarMenu>
                 <SideBtnWrap>
                     <SidebarRoute to='/dream'>

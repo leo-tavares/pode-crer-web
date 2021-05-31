@@ -24,7 +24,7 @@ const Navbar = ({ toggle, searchDream }) => {
   };
 
   const { user } = useAuth();
-
+  console.log(user);
   return (
     <Nav>
       <NavbarContainer>
@@ -53,7 +53,7 @@ const Navbar = ({ toggle, searchDream }) => {
         <NavBtn>
           <NavBtnLink to="/createDream">Criar sonho</NavBtnLink>
         </NavBtn>
-        <Logged />
+        {user && <Logged />}
       </NavbarContainer>
     </Nav>
   );

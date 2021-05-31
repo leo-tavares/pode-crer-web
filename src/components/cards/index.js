@@ -26,7 +26,6 @@ const DreamsCards = () => {
 
   const history = useHistory();
   const navigateTo = (path) => history.push(path);
-  console.log(dream);
   return (
     <>
       <DreamsContainer id="dreams">
