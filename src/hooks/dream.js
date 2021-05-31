@@ -8,6 +8,7 @@ export const DreamProvider = ({ children }) => {
   const [dream, setDream] = useState({});
   const [current, setCurrent] = useState({});
   const { token, user } = useAuth();
+
   const getDreams = useCallback(async () => {
     const { data } = await api.get("/dream");
     setDream(data);
@@ -27,6 +28,7 @@ export const DreamProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      setCurrent(data.dream);
     },
     [token]
   );
@@ -45,7 +47,8 @@ export const DreamProvider = ({ children }) => {
         },
       }
     );
-    await uploadImage(data.dream.id, dream.newDream?.picture);
+    dream.newDream?.picture &&
+      (await uploadImage(data.dream.id, dream.newDream?.picture));
   }, [dream.newDream, user.id, token, uploadImage]);
 
   const searchSpecifcDreams = useCallback(async (title) => {
@@ -66,12 +69,11 @@ export const DreamProvider = ({ children }) => {
     [dream]
   );
 
-  const historyUserTransations = useCallback(async (id) =>{
-    const { data } = await api.get(`/user/history/${id}`)
+  const historyUserTransations = useCallback(async (id) => {
+    const { data } = await api.get(`/user/history/${id}`);
 
     return data;
-  }, []
-  )
+  }, []);
 
   const donate = useCallback(
     async (value) => {
