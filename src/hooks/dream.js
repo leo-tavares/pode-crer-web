@@ -49,7 +49,7 @@ export const DreamProvider = ({ children }) => {
     );
     dream.newDream?.picture &&
       (await uploadImage(data.dream.id, dream.newDream?.picture));
-  }, [dream.newDream, user.id, token, uploadImage]);
+  }, [dream.newDream, user?.id, token, uploadImage]);
 
   const searchSpecifcDreams = useCallback(async (title) => {
     const { data } = await api.get(`/dream/search/${title}/1`);
