@@ -40,7 +40,7 @@ const DreamSection = () => {
           <DreamImg src={current.picture} />
           <Div>
             <DivDonation>
-              <DonationH1>oi</DonationH1>
+              <DonationH1>{current.user.name}</DonationH1>
               <ButtonDonation onClick={switchVisible}>
                 Apoiar sonho
               </ButtonDonation>
