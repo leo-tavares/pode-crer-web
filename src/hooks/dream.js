@@ -37,7 +37,7 @@ export const DreamProvider = ({ children }) => {
       {
         ...dream.newDream,
         picture: undefined,
-        userId: 1,
+        userId: user.id,
       },
       {
         headers: {
@@ -46,7 +46,7 @@ export const DreamProvider = ({ children }) => {
       }
     );
     await uploadImage(data.dream.id, dream.newDream?.picture);
-  }, [dream.newDream, uploadImage, token]);
+  }, [dream.newDream, user.id, token, uploadImage]);
 
   const searchSpecifcDreams = useCallback(async (title) => {
     const { data } = await api.get(`/dream/search/${title}/1`);
@@ -68,11 +68,11 @@ export const DreamProvider = ({ children }) => {
 
   const historyUserTransations = useCallback(async (id) =>{
     const { data } = await api.get(`/user/history/${id}`)
-    
+
     return data;
   }, []
-  )  
-  
+  )
+
   const donate = useCallback(
     async (value) => {
       await api.post(

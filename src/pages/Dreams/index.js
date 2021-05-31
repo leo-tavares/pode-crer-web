@@ -35,7 +35,7 @@ const DreamSection = () => {
       <Navbar toggle={toggle} />
       <ContainerDreamsPage>
         <div>{current.title}</div>
-        <p>{current.user_id.name}</p>
+        <p>{current.user_id?.name || ""}</p>
         <Section>
           <DreamImg src={current.picture} />
           <Div>

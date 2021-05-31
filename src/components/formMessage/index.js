@@ -17,8 +17,7 @@ const TextArea = () => {
       await createDream()
       history.push('/dreamssection')
     } catch (error) {
-      console.log(error);
-      alert("Ops!")
+      alert("Ops! Falha ao processar a doação")
     }
   }, [createDream, history])
 
