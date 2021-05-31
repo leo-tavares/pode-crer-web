@@ -6,9 +6,8 @@ const DreamContext = createContext({});
 
 export const DreamProvider = ({ children }) => {
   const [dream, setDream] = useState({});
-  const [current, setCurrent] = useState();
-  const { token } = useAuth();
-  
+  const [current, setCurrent] = useState({});
+  const { token, user } = useAuth();
   const getDreams = useCallback(async () => {
     const { data } = await api.get("/dream");
     setDream(data);
@@ -33,7 +32,6 @@ export const DreamProvider = ({ children }) => {
   );
 
   const createDream = useCallback(async () => {
-    console.log(token);
     const { data } = await api.post(
       "/dream",
       {
@@ -75,11 +73,21 @@ export const DreamProvider = ({ children }) => {
   }, []
   )  
   
-  // const donate = useCallback(async (payload) => {
-  //   const {} = await api.get()
-  // })
+  const donate = useCallback(
+    async (value) => {
+      await api.post(
+        "/donate",
+        { value, userId: user.id, dreamId: current.id },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    },
+    [current?.id, token, user?.id]
+  );
 
-  console.log(dream);
   return (
     <DreamContext.Provider
       value={{
@@ -92,6 +100,7 @@ export const DreamProvider = ({ children }) => {
         searchSpecifcDreams,
         setCurrentDream,
         historyUserTransations,
+        donate,
       }}
     >
       {children}
