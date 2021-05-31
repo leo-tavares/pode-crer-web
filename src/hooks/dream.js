@@ -8,6 +8,7 @@ export const DreamProvider = ({ children }) => {
   const [dream, setDream] = useState({});
   const [current, setCurrent] = useState();
   const { token } = useAuth();
+  
   const getDreams = useCallback(async () => {
     const { data } = await api.get("/dream");
     setDream(data);
@@ -67,6 +68,13 @@ export const DreamProvider = ({ children }) => {
     [dream]
   );
 
+  const historyUserTransations = useCallback(async (id) =>{
+    const { data } = await api.get(`/user/history/${id}`)
+    
+    return data;
+  }, []
+  )  
+  
   // const donate = useCallback(async (payload) => {
   //   const {} = await api.get()
   // })
@@ -83,6 +91,7 @@ export const DreamProvider = ({ children }) => {
         setCreateData,
         searchSpecifcDreams,
         setCurrentDream,
+        historyUserTransations,
       }}
     >
       {children}

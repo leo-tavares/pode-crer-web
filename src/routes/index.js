@@ -10,6 +10,7 @@ import Profile from "../pages/Profile";
 import DreamsSearch from "../pages/DreamsSearch";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../pages/Contact";
+import UserDashboard from "../pages/UserDashboard";
 
 const Routes = () => {
   return (
@@ -38,6 +39,9 @@ const Routes = () => {
       </Route>
       <Route path="/contact">
         <Contact />
+      </Route>
+      <Route path="/userdashboard">
+        <UserDashboard />
       </Route>
       <Route path="*" component={Error} />
     </Switch>

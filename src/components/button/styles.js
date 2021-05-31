@@ -8,7 +8,7 @@ export const Container = styled.button`
   padding: 0 16px;
   margin-top: 16px;
 
-  background-color: ${COLORS.BTN_PRIMARY};
+  background-color: #01bf71;
   width: 100%;
 
   &:hover {
