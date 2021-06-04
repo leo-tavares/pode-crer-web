@@ -1,15 +1,48 @@
+# Pode crer web
+
+<p align="center">
+<img  style="border-radius: 8px; width:50%;" src="./docs/readme_intro.gif"/>
+</p>
+
 # Índice
 - [Introdução](#introdução)
+- [Quais as tecnologias usamos no projeto](#quais-as-tecnologias-usamos-no-projeto)
+- [Como rodar o projeto](#como-rodar-o-projeto)
 - [🤔 Como contribuir?](#como-contribuir)
   - [🤔 fiz um fork como pegar as atualizações?](#como-pegar-atualizações-a-partir-de-um-fork)
-- [Requisitos](#requisitos)
-  - [Obrigatórios](#obrigatórios)
-  - [Extras](#extras)
-
 
 # Introdução
 
 O ideia é construir uma platafarma para realização de sonhos, as pessas podem criar seus projetos em busca de recursos para alcançar seus desejos. Com o pode-crer-web você vai poder tanto ajudar quanto ser ajudado.
+
+# Quais as tecnologias usamos no projeto
+
+- [Reactjs](https://reactjs.org/)
+- [hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Yup](https://github.com/jquense/yup)
+- [unform](https://unform.dev/)
+- [Context api](https://pt-br.reactjs.org/docs/context.html)
+- [styled-components](https://styled-components.com/)
+
+# Como rodar o projeto
+
+Para conseguir executar o projeto é necessário tem em tua maquina:
+
+- [NodeJs](https://nodejs.org/en/) ( desenvolvido com node na versão 12+ )
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+- Conhecimento _básico_ sobre variáveis de ambiente com arquivo ".env" ( [material de apoio](https://blog.rocketseat.com.br/variaveis-ambiente-nodejs) )
+- O projeto backend do sistema ( [link](https://github.com/Vitor-Vaz/pode-crer-backend) )
+
+
+## Primeiro Passo
+
+- Instale todas as dependências do projeto com o comando `yarn install`
+- Agora devemos "cadastrar" algumas variáveis para nossa aplicações funcionar corretamente
+  - Copie e cole na raiz do projeto o arquivo ".env.example", em seguida renomeie para ".env".
+  - configure o valor de REACT_APP_API_URL para o endereço local da api ( por exemplo `http://localhost:8001` ). Esse valor é usado pela axios para termos acesso ao sistema backend
+## Segundo Passo
+
+- Execute o script de start com `yarn start`, caso enfrente algum problema pode resetar o chace `yarn start --reset-cache`
 
 # Como contribuir
 
